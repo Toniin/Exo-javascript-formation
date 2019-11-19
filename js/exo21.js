@@ -24,7 +24,8 @@ euro.addEventListener("input", (e) => {
   } else {
     exchange.style.border = "1px solid #6e6e6e";
   }
-  const convertEuroFch = Math.round(e.target.value * exchange.value * 100) / 100; 
+  // toFixed(numberAfterComma) => permet de choisir combien de chiffre après la virgule
+  const convertEuroFch = (e.target.value * exchange.value).toFixed(2); 
   fch.value = convertEuroFch;
 });
 
@@ -36,6 +37,7 @@ fch.addEventListener("input", (e) => {
   } else {
     exchange.style.border = "1px solid #6e6e6e";
   }
-  const convertFchEuro = Math.round(e.target.value / exchange.value * 100) / 100; 
+  // toFixed(numberAfterComma) => permet de choisir combien de chiffre après la virgule
+  const convertFchEuro = (e.target.value / exchange.value).toFixed(2); 
   euro.value = convertFchEuro;
 });

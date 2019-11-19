@@ -24,6 +24,15 @@ class ManageImages {
       // json() est une promesse qui vérifie que response est en JSON
       response.json()
       .then((data) => {
+        // Modifier la donnée reçue par un nouvel objet (pour avoir une image à la bonne taille)
+        data = data.map(element => {
+          return {
+            url: `https://picsum.photos/id/${element.id}/400/300`,
+            author: element.author
+          }
+        })
+        
+        // Ajouter l'objet d'images à this.images
         this.images = data;
         // Retourne un tableau dans la console de ses éléments
         console.table(this.images);
@@ -35,14 +44,14 @@ class ManageImages {
   }
 
   // On créé pour chaque image du tableau, une image dans le DOM
-  // ATTENTION "ARROW FUNCTION" CAR "THIS" CORRESPOND À L'INSTANCE EST NON À createImages
+  // ATTENTION "ARROW FUNCTION" CAR "THIS" CORRESPOND À L'INSTANCE ET NON à createImages
   createImages = () => {
     // Parcourir le tableau d'images
     for (let i = 0; i < this.images.length; i++) {
       // On créé une balise img
       const img = document.createElement("img");
       // // On donne la source de l'image à la balise img
-      img.setAttribute("src", this.images[i].download_url);
+      img.setAttribute("src", this.images[i].url);
       // // On lui donne une alternative
       img.setAttribute("alt", "");
       // // On le place dans le DOM (il sera fils de l'élément this.ss_container = section slideshow-exo22)
