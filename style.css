@@ -1,0 +1,91 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+body *:focus {
+  outline: none !important;
+}
+
+h1, h2, ul {
+  margin: 5px 0;
+}
+
+h3 {
+  margin: 10px;
+}
+
+
+  /* EXO 18, 19 */
+.exo-18, .exo-19 {
+  display: none;
+}
+.exo-18, .exo-19 > p {
+  padding: 5px 20px;
+  background-color: #eeeeee;
+}
+.color-red {
+  color: rgb(163, 16, 16);
+}
+
+    /* EXO 20 */
+/* Position relative permet au enfant de se référé à cette élément */
+#slideshow, #slideshow-exo22 {
+  display: none;
+  position: relative;
+  width: 400px;
+  height: 300px;
+  border: 1px solid black;
+  box-shadow: 10px 5px 5px grey;
+}
+
+#slideshow, #slideshow-exo22 img {
+  /* Se réfère par rapport à #slideshow (premier parent à être en pos. relative) */
+  position: absolute;
+  max-width: 400px;
+  max-height: 300px;
+  top: 0;
+  left: 0;
+}
+
+#slideshow, #slideshow-exo22 img:first-child {
+  z-index: 1;
+}
+
+    /* EXO 21 */
+#formulaire{
+  display: none;
+  flex-direction: column;
+}
+
+#formulaire label {
+  font-size: 17px;
+  margin: 5px;
+}
+
+#formulaire input {
+  padding: 5px;
+  border: 1px solid #6e6e6e;
+  border-radius: 3px;
+}
+
+#formulaire p {
+  display: none;
+  text-align: center;
+  color: red;
+  background-color: rgba(190, 101, 101, 0.5);
+}
+
+  /* EXO 22 */
+#slideshow-exo22 {
+  display: none;
+  border: 1px solid black;
+  /* box-shadow: 10px 5px 5px grey; */
+}
+
+/* #slideshow-exo22 img {
+  max-width: 400px;
+  max-height: 300px;
+} */
