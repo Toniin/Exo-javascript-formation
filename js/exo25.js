@@ -16,15 +16,19 @@ jQuery(($) => {
       // Pour chaque élément du tableau qui est une url d'image, on créé une nouvelle image
       // avec sa source que l'on place ensuite dans la section "#img-exo25"
       $("<img></img>", {
-        src: elem
+        src: elem,
+        class: "jquery-img"
       }).appendTo("#img-exo25")
-
-      // ON FAIT UNE ANIMATION BOUGER SA POSITION DE HAUT EN BAS
-      // $(".image-exo25").animate({
-      //   left: "+=300"
-      // }, 2000)
     });
 
+    $(".jquery-img").on("click", function() {
+      console.log(this)
+      // On fait une animation lorsque l'évènement "click" pour l'élément
+      // L'élément se met à une opacité de 0.75
+      $(this).animate({
+        opacity: 0.75
+      }, 1000)  
+    })
   });
 
 })
